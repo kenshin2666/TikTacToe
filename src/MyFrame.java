@@ -1,3 +1,4 @@
+import java.awt.Color;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -18,19 +19,19 @@ public class MyFrame extends JFrame implements ActionListener {
 	JMenu helpMenu;
 	JMenuItem restartItem;
 	JMenuItem exitItem;
-	JMenuItem howToPlay;
-	
+	JMenuItem howToPlay;	
 	ImageIcon icon;
 	
-	JButton button1 = new JButton();
-	JButton button2 = new JButton();
-	JButton button3 = new JButton();
-	JButton button4 = new JButton();
-	JButton button5 = new JButton();
-	JButton button6 = new JButton();
-	JButton button7 = new JButton();
-	JButton button8 = new JButton();
-	JButton button9 = new JButton();
+	//creating the 9 buttons 
+	static JButton button1 = new JButton();
+	static JButton button2 = new JButton();
+	static JButton button3 = new JButton();
+	static JButton button4 = new JButton();
+	static JButton button5 = new JButton();
+	static JButton button6 = new JButton();
+	static JButton button7 = new JButton();
+	static JButton button8 = new JButton();
+	static JButton button9 = new JButton();
 	
 	
 	MyFrame() {
@@ -61,10 +62,10 @@ public class MyFrame extends JFrame implements ActionListener {
 		
 		//Setting the keys to shortcut interact
 		fileMenu.setMnemonic(KeyEvent.VK_F);
-		fileMenu.setMnemonic(KeyEvent.VK_H);
+		helpMenu.setMnemonic(KeyEvent.VK_H);
 		exitItem.setMnemonic(KeyEvent.VK_E);
 		restartItem.setMnemonic(KeyEvent.VK_R);
-		howToPlay.setMnemonic(KeyEvent.VK_O);
+		howToPlay.setMnemonic(KeyEvent.VK_H);
 		
 		// Adding sub-menus to main menus
 		fileMenu.add(restartItem);		
@@ -112,12 +113,34 @@ public class MyFrame extends JFrame implements ActionListener {
 		if (e.getSource()==restartItem) {
 		//create way of restarting the game
 		}
-		//setup buttons with if/else for X/O
+		//setup buttons with if/else for setting X/O
 		if (e.getSource()==button1) {
-			System.exit(0);
+			
+			if (Player.playerOne == true) {
+				button1.setBackground(Color.RED);
+				button1.getModel().setPressed(true);			
+				SolutionSolving.setValue();
+			} else {
+				button1.setBackground(Color.GREEN);
+				button1.getModel().setPressed(true);
+				SolutionSolving.setValue();
+			}
+			Player.TurnCount();
+			button1.setEnabled(false);
 		}
 		if (e.getSource()==button2) {
-			System.exit(0);
+			
+			if (Player.playerOne == true) {
+				button2.setBackground(Color.RED);
+				button2.getModel().setPressed(true);			
+				SolutionSolving.setValue();
+			} else {
+				button2.setBackground(Color.GREEN);
+				button2.getModel().setPressed(true);
+				SolutionSolving.setValue();
+			}
+			Player.TurnCount();
+			button2.setEnabled(false);
 		}
 		if (e.getSource()==button3) {
 			System.exit(0);
