@@ -1,4 +1,7 @@
+import java.awt.BasicStroke;
 import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -22,6 +25,11 @@ public class MyFrame extends JFrame implements ActionListener {
 	JMenuItem howToPlay;	
 	ImageIcon icon;
 	
+	ImageIcon xIcon = new ImageIcon("X.png");
+	ImageIcon oIcon = new ImageIcon("O.png");
+	ImageIcon xWins = new ImageIcon("xwins.png");
+	ImageIcon oWins = new ImageIcon("owins.png");
+	
 	//creating the 9 buttons 
 	static JButton button1 = new JButton();
 	static JButton button2 = new JButton();
@@ -43,6 +51,7 @@ public class MyFrame extends JFrame implements ActionListener {
 		this.setResizable(false);
 		
 		icon = new ImageIcon("tictactoe.png");
+		
 		
 		// Creating the main items of the menu
 		menuBar = new JMenuBar();
@@ -112,58 +121,166 @@ public class MyFrame extends JFrame implements ActionListener {
 		}
 		if (e.getSource()==restartItem) {
 		//create way of restarting the game
+			reset();
 		}
 		//setup buttons with if/else for setting X/O
 		if (e.getSource()==button1) {
 			
 			if (Player.playerOne == true) {
-				button1.setBackground(Color.RED);
-				button1.getModel().setPressed(true);			
+				button1.getModel().setPressed(true);
+				button1.setIcon(xIcon);
 				SolutionSolving.setValue();
 			} else {
-				button1.setBackground(Color.GREEN);
 				button1.getModel().setPressed(true);
+				button1.setIcon(oIcon);
 				SolutionSolving.setValue();
 			}
 			Player.TurnCount();
 			button1.setEnabled(false);
+			SolutionSolving.checkWinner();
 		}
 		if (e.getSource()==button2) {
 			
 			if (Player.playerOne == true) {
-				button2.setBackground(Color.RED);
+				button2.setIcon(xIcon);
 				button2.getModel().setPressed(true);			
 				SolutionSolving.setValue();
 			} else {
-				button2.setBackground(Color.GREEN);
+				button2.setIcon(oIcon);
 				button2.getModel().setPressed(true);
 				SolutionSolving.setValue();
 			}
 			Player.TurnCount();
 			button2.setEnabled(false);
+			SolutionSolving.checkWinner();
 		}
 		if (e.getSource()==button3) {
-			System.exit(0);
+			
+			if (Player.playerOne == true) {
+				button3.setIcon(xIcon);
+				button3.getModel().setPressed(true);			
+				SolutionSolving.setValue();
+			} else {
+				button3.setIcon(oIcon);
+				button3.getModel().setPressed(true);
+				SolutionSolving.setValue();
+			}
+			Player.TurnCount();
+			button3.setEnabled(false);
+			SolutionSolving.checkWinner();
 		}
 		if (e.getSource()==button4) {
-			System.exit(0);
+			
+			if (Player.playerOne == true) {
+				button4.setIcon(xIcon);
+				button4.getModel().setPressed(true);			
+				SolutionSolving.setValue();
+			} else {
+				button4.setIcon(oIcon);
+				button4.getModel().setPressed(true);
+				SolutionSolving.setValue();
+			}
+			Player.TurnCount();
+			button4.setEnabled(false);
+			SolutionSolving.checkWinner();
 		}
 		if (e.getSource()==button5) {
-			System.exit(0);
+			
+			if (Player.playerOne == true) {
+				button5.setIcon(xIcon);
+				button5.getModel().setPressed(true);			
+				SolutionSolving.setValue();
+			} else {
+				button5.setIcon(oIcon);
+				button5.getModel().setPressed(true);
+				SolutionSolving.setValue();
+			}
+			Player.TurnCount();
+			button5.setEnabled(false);
+			SolutionSolving.checkWinner();
 		}
 		if (e.getSource()==button6) {
-			System.exit(0);
+			
+			if (Player.playerOne == true) {
+				button6.setIcon(xIcon);
+				button6.getModel().setPressed(true);			
+				SolutionSolving.setValue();
+			} else {
+				button6.setIcon(oIcon);
+				button6.getModel().setPressed(true);
+				SolutionSolving.setValue();
+			}
+			Player.TurnCount();
+			button6.setEnabled(false);
+			SolutionSolving.checkWinner();
 		}
 		if (e.getSource()==button7) {
-			System.exit(0);
+			
+			if (Player.playerOne == true) {
+				button7.setIcon(xIcon);
+				button7.getModel().setPressed(true);			
+				SolutionSolving.setValue();
+			} else {
+				button7.setIcon(oIcon);
+				button7.getModel().setPressed(true);
+				SolutionSolving.setValue();
+			}
+			Player.TurnCount();
+			button7.setEnabled(false);
+			SolutionSolving.checkWinner();
 		}
 		if (e.getSource()==button8) {
-			System.exit(0);
+			
+			if (Player.playerOne == true) {
+				button8.setIcon(xIcon);
+				button8.getModel().setPressed(true);			
+				SolutionSolving.setValue();
+			} else {
+				button8.setIcon(oIcon);
+				button8.getModel().setPressed(true);
+				SolutionSolving.setValue();
+			}
+			Player.TurnCount();
+			button8.setEnabled(false);
+			SolutionSolving.checkWinner();
 		}
 		if (e.getSource()==button9) {
-			System.exit(0);
+			
+			if (Player.playerOne == true) {
+				button9.setIcon(xIcon);
+				button9.getModel().setPressed(true);			
+				SolutionSolving.setValue();
+			} else {
+				button9.setIcon(oIcon);
+				button9.getModel().setPressed(true);
+				SolutionSolving.setValue();
+			}
+			Player.TurnCount();
+			button9.setEnabled(false);
+			SolutionSolving.checkWinner();
 		}
 
 	}	
 
+	//Needs to reset the 2S ArrayList, as well as resetting the JButtons
+	public static void reset() {
+		for (int i = 0; i < SolutionSolving.xOrO.length; i++) {			 
+			for(int j = 0; j < SolutionSolving.xOrO[i].length; j++) {
+				SolutionSolving.xOrO[i][j] = "blank";			
+			}	
+		}
+	}
+	
+	public void paint(Graphics g) {
+	    super.paint(g);
+	    Graphics2D g2 = (Graphics2D) g;
+	    g.setColor(Color.black);
+	    g2.setStroke(new BasicStroke(5));
+	    g.drawLine(168,55,168,500);
+	    g.drawLine(331, 55, 331, 500);
+	    g.drawLine(0,198,500,198);
+	    g.drawLine(0,346,500,346);
+	}
+	
 }
+	

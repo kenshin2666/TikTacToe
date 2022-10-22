@@ -6,13 +6,9 @@ static boolean playerOne = true;
 		
 		//Switches between being player 1 or 2
 		if (playerOne == true) {
-
-			playerOne = false;
-			
+			playerOne = false;			
 		} else {
-
-			playerOne = true;
-			
+			playerOne = true;			
 		}		
 	}
 }

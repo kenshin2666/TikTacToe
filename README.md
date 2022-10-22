@@ -5,8 +5,10 @@ Time to solve Alex's TikTacToe puzzle game :D!
 
 Things to work on:
 
-2D ArrayList solution solving
-Connecting GridLayout to the 2D ArrayList
-make GL work with changing 2D to Xs first
-then implement Os
-Make it work for 2 players
+checkColumns() doesnt print [2][2] for some reason (bug)
+Create class to diagonal win condition
+Create a little pop up when there's a winner
+Clean up absurd amount of println statements
+Finish the reset function
+Clean up rest of code
+Add menu data
