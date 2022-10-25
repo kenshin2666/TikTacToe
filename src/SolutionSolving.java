@@ -1,5 +1,7 @@
 import java.util.ArrayList;
 
+import javax.swing.JOptionPane;
+
 public class SolutionSolving{
 
 static int winnerRow = 0;
@@ -155,20 +157,52 @@ public static String[][] xOrO = {
 	//Will check if each way causes a winner to occur
 	public static void winnerCount() {
 		if (winnerRow == 3) {
-			System.out.println("Player 1 wins horizontal");
-			winnerRow = 0;
+			JOptionPane.showMessageDialog(null, "Player 1 wins! Let's again!","Winner", 
+					JOptionPane.PLAIN_MESSAGE, null);
+			reset();
 		} else if (winnerRow == -3) {
-			System.out.println("Player 2 wins horizontal");
-			winnerRow = 0;
+			JOptionPane.showMessageDialog(null, "Player 2 wins! Let's again!","Winner", 
+					JOptionPane.PLAIN_MESSAGE, null);
+			reset();
 		} else if (winnerColumn == 3) {
-			System.out.println("Player 1 wins vertical");
-			winnerColumn = 0;
+			JOptionPane.showMessageDialog(null, "Player 1 wins! Let's again!","Winner", 
+					JOptionPane.PLAIN_MESSAGE, null);
+			reset();
 		} else if (winnerColumn == -3) {
-			System.out.println("Player 2 wins vertical");
-			winnerColumn = 0;
+			JOptionPane.showMessageDialog(null, "Player 2 wins! Let's again!","Winner", 
+					JOptionPane.PLAIN_MESSAGE, null);
+			reset();
 		}
 	}
+	
+	//Needs to reset the 2D ArrayList, as well as resetting the JButtons
+	public static void reset() {
+		for (int i = 0; i < SolutionSolving.xOrO.length; i++) {			 
+			for(int j = 0; j < SolutionSolving.xOrO[i].length; j++) {
+				SolutionSolving.xOrO[i][j] = "blank";
+				System.out.println(xOrO);
+			}	
+		}
+		MyFrame.button1.setEnabled(true);
+		MyFrame.button2.setEnabled(true);
+		MyFrame.button3.setEnabled(true);
+		MyFrame.button4.setEnabled(true);
+		MyFrame.button5.setEnabled(true);
+		MyFrame.button6.setEnabled(true);
+		MyFrame.button7.setEnabled(true);
+		MyFrame.button8.setEnabled(true);
+		MyFrame.button9.setEnabled(true);
+		MyFrame.button1.setIcon(null);
+		MyFrame.button2.setIcon(null);
+		MyFrame.button3.setIcon(null);
+		MyFrame.button4.setIcon(null);
+		MyFrame.button5.setIcon(null);
+		MyFrame.button6.setIcon(null);
+		MyFrame.button7.setIcon(null);
+		MyFrame.button8.setIcon(null);
+		MyFrame.button9.setIcon(null);
+		winnerColumn = 0;
+		winnerRow = 0;
+		Player.playerOne = true;
+	}
 }
-        
-
-

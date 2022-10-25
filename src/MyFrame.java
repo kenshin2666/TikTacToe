@@ -13,6 +13,7 @@ import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 
 public class MyFrame extends JFrame implements ActionListener {
 	
@@ -29,6 +30,7 @@ public class MyFrame extends JFrame implements ActionListener {
 	ImageIcon oIcon = new ImageIcon("O.png");
 	ImageIcon xWins = new ImageIcon("xwins.png");
 	ImageIcon oWins = new ImageIcon("owins.png");
+	ImageIcon blankButton = new ImageIcon("blankicon.png");
 	
 	//creating the 9 buttons 
 	static JButton button1 = new JButton();
@@ -41,7 +43,6 @@ public class MyFrame extends JFrame implements ActionListener {
 	static JButton button8 = new JButton();
 	static JButton button9 = new JButton();
 	
-	
 	MyFrame() {
 		
 		// Building the frame
@@ -51,7 +52,6 @@ public class MyFrame extends JFrame implements ActionListener {
 		this.setResizable(false);
 		
 		icon = new ImageIcon("tictactoe.png");
-		
 		
 		// Creating the main items of the menu
 		menuBar = new JMenuBar();
@@ -107,8 +107,19 @@ public class MyFrame extends JFrame implements ActionListener {
 		button8.addActionListener(this);
 		button9.addActionListener(this);
 		
+		button1.setIcon(blankButton);
+		button2.setIcon(blankButton);
+		button3.setIcon(blankButton);
+		button4.setIcon(blankButton);
+		button5.setIcon(blankButton);
+		button6.setIcon(blankButton);
+		button7.setIcon(blankButton);
+		button8.setIcon(blankButton);
+		button9.setIcon(blankButton);
+		
 		this.setTitle("Tic-Tac-Toe!");
 		this.setIconImage(icon.getImage());
+		this.setLocationRelativeTo(null);
 		this.setVisible(true);
 	}
 
@@ -120,157 +131,153 @@ public class MyFrame extends JFrame implements ActionListener {
 			System.exit(0);
 		}
 		if (e.getSource()==restartItem) {
-		//create way of restarting the game
-			reset();
+			SolutionSolving.reset();
 		}
+		if (e.getSource()==howToPlay) {
+			JOptionPane.showMessageDialog(null, "Each player takes a turn placing and X or O,\n"
+					+ "respectively on the board.\n"
+					+ "The goal is to make a full row, column or diagonal to win!","How to Play", 
+					JOptionPane.PLAIN_MESSAGE, null);
+			}
 		//setup buttons with if/else for setting X/O
-		if (e.getSource()==button1) {
-			
+		if (e.getSource()==button1) {		
 			if (Player.playerOne == true) {
 				button1.getModel().setPressed(true);
-				button1.setIcon(xIcon);
 				SolutionSolving.setValue();
+				button1.setEnabled(false);
+				button1.setDisabledIcon(xIcon);			
 			} else {
 				button1.getModel().setPressed(true);
-				button1.setIcon(oIcon);
 				SolutionSolving.setValue();
+				button1.setEnabled(false);
+				button1.setDisabledIcon(oIcon);			
 			}
-			Player.TurnCount();
-			button1.setEnabled(false);
+			Player.TurnCount();			
 			SolutionSolving.checkWinner();
 		}
-		if (e.getSource()==button2) {
-			
+		if (e.getSource()==button2) {		
 			if (Player.playerOne == true) {
-				button2.setIcon(xIcon);
-				button2.getModel().setPressed(true);			
-				SolutionSolving.setValue();
-			} else {
-				button2.setIcon(oIcon);
 				button2.getModel().setPressed(true);
 				SolutionSolving.setValue();
+				button2.setEnabled(false);
+				button2.setDisabledIcon(xIcon);			
+			} else {
+				button2.getModel().setPressed(true);
+				SolutionSolving.setValue();
+				button2.setEnabled(false);
+				button2.setDisabledIcon(oIcon);			
 			}
-			Player.TurnCount();
-			button2.setEnabled(false);
+			Player.TurnCount();			
 			SolutionSolving.checkWinner();
 		}
-		if (e.getSource()==button3) {
-			
+		if (e.getSource()==button3) {		
 			if (Player.playerOne == true) {
-				button3.setIcon(xIcon);
-				button3.getModel().setPressed(true);			
-				SolutionSolving.setValue();
-			} else {
-				button3.setIcon(oIcon);
 				button3.getModel().setPressed(true);
 				SolutionSolving.setValue();
+				button3.setEnabled(false);
+				button3.setDisabledIcon(xIcon);				
+			} else {
+				button3.getModel().setPressed(true);
+				SolutionSolving.setValue();
+				button3.setEnabled(false);
+				button3.setDisabledIcon(oIcon);				
 			}
-			Player.TurnCount();
-			button3.setEnabled(false);
+			Player.TurnCount();			
 			SolutionSolving.checkWinner();
 		}
-		if (e.getSource()==button4) {
-			
+		if (e.getSource()==button4) {			
 			if (Player.playerOne == true) {
-				button4.setIcon(xIcon);
-				button4.getModel().setPressed(true);			
-				SolutionSolving.setValue();
-			} else {
-				button4.setIcon(oIcon);
 				button4.getModel().setPressed(true);
 				SolutionSolving.setValue();
+				button4.setEnabled(false);
+				button4.setDisabledIcon(xIcon);				
+			} else {
+				button4.getModel().setPressed(true);
+				SolutionSolving.setValue();
+				button4.setEnabled(false);
+				button4.setDisabledIcon(oIcon);				
 			}
-			Player.TurnCount();
-			button4.setEnabled(false);
+			Player.TurnCount();			
 			SolutionSolving.checkWinner();
 		}
-		if (e.getSource()==button5) {
-			
+		if (e.getSource()==button5) {			
 			if (Player.playerOne == true) {
-				button5.setIcon(xIcon);
-				button5.getModel().setPressed(true);			
-				SolutionSolving.setValue();
-			} else {
-				button5.setIcon(oIcon);
 				button5.getModel().setPressed(true);
 				SolutionSolving.setValue();
+				button5.setEnabled(false);
+				button5.setDisabledIcon(xIcon);				
+			} else {
+				button5.getModel().setPressed(true);
+				SolutionSolving.setValue();
+				button5.setEnabled(false);
+				button5.setDisabledIcon(oIcon);				
 			}
-			Player.TurnCount();
-			button5.setEnabled(false);
+			Player.TurnCount();			
 			SolutionSolving.checkWinner();
 		}
-		if (e.getSource()==button6) {
-			
+		if (e.getSource()==button6) {			
 			if (Player.playerOne == true) {
-				button6.setIcon(xIcon);
-				button6.getModel().setPressed(true);			
-				SolutionSolving.setValue();
-			} else {
-				button6.setIcon(oIcon);
 				button6.getModel().setPressed(true);
 				SolutionSolving.setValue();
+				button6.setEnabled(false);
+				button6.setDisabledIcon(xIcon);				
+			} else {
+				button6.getModel().setPressed(true);
+				SolutionSolving.setValue();
+				button6.setEnabled(false);
+				button6.setDisabledIcon(oIcon);				
 			}
-			Player.TurnCount();
-			button6.setEnabled(false);
+			Player.TurnCount();			
 			SolutionSolving.checkWinner();
 		}
-		if (e.getSource()==button7) {
-			
+		if (e.getSource()==button7) {			
 			if (Player.playerOne == true) {
-				button7.setIcon(xIcon);
-				button7.getModel().setPressed(true);			
-				SolutionSolving.setValue();
-			} else {
-				button7.setIcon(oIcon);
 				button7.getModel().setPressed(true);
 				SolutionSolving.setValue();
+				button7.setEnabled(false);
+				button7.setDisabledIcon(xIcon);				
+			} else {
+				button7.getModel().setPressed(true);
+				SolutionSolving.setValue();
+				button7.setEnabled(false);
+				button7.setDisabledIcon(oIcon);			
 			}
-			Player.TurnCount();
-			button7.setEnabled(false);
+			Player.TurnCount();			
 			SolutionSolving.checkWinner();
 		}
-		if (e.getSource()==button8) {
-			
+		if (e.getSource()==button8) {			
 			if (Player.playerOne == true) {
-				button8.setIcon(xIcon);
-				button8.getModel().setPressed(true);			
-				SolutionSolving.setValue();
-			} else {
-				button8.setIcon(oIcon);
 				button8.getModel().setPressed(true);
 				SolutionSolving.setValue();
+				button8.setEnabled(false);
+				button8.setDisabledIcon(xIcon);				
+			} else {
+				button8.getModel().setPressed(true);
+				SolutionSolving.setValue();
+				button8.setEnabled(false);
+				button8.setDisabledIcon(oIcon);			
 			}
-			Player.TurnCount();
-			button8.setEnabled(false);
+			Player.TurnCount();			
 			SolutionSolving.checkWinner();
 		}
-		if (e.getSource()==button9) {
-			
+		if (e.getSource()==button9) {			
 			if (Player.playerOne == true) {
-				button9.setIcon(xIcon);
-				button9.getModel().setPressed(true);			
-				SolutionSolving.setValue();
-			} else {
-				button9.setIcon(oIcon);
 				button9.getModel().setPressed(true);
 				SolutionSolving.setValue();
+				button9.setEnabled(false);
+				button9.setDisabledIcon(xIcon);				
+			} else {
+				button9.getModel().setPressed(true);
+				SolutionSolving.setValue();
+				button9.setEnabled(false);
+				button9.setDisabledIcon(oIcon);			
 			}
-			Player.TurnCount();
-			button9.setEnabled(false);
+			Player.TurnCount();			
 			SolutionSolving.checkWinner();
 		}
-
 	}	
-
-	//Needs to reset the 2S ArrayList, as well as resetting the JButtons
-	public static void reset() {
-		for (int i = 0; i < SolutionSolving.xOrO.length; i++) {			 
-			for(int j = 0; j < SolutionSolving.xOrO[i].length; j++) {
-				SolutionSolving.xOrO[i][j] = "blank";			
-			}	
-		}
-	}
 	
+	// Draws the grid lines of the board
 	public void paint(Graphics g) {
 	    super.paint(g);
 	    Graphics2D g2 = (Graphics2D) g;
@@ -283,4 +290,3 @@ public class MyFrame extends JFrame implements ActionListener {
 	}
 	
 }
-	
