@@ -30,7 +30,7 @@ public class MyFrame extends JFrame implements ActionListener {
 	ImageIcon oIcon = new ImageIcon("O.png");
 	ImageIcon xWins = new ImageIcon("xwins.png");
 	ImageIcon oWins = new ImageIcon("owins.png");
-	ImageIcon blankButton = new ImageIcon("blankicon.png");
+	static ImageIcon blankButton = new ImageIcon("blankicon.png");
 	
 	//creating the 9 buttons 
 	static JButton button1 = new JButton();

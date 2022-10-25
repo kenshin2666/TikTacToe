@@ -112,15 +112,12 @@ public static String[][] xOrO = {
 			for(int j = 0; j < xOrO[i].length; j++) {
 				if (xOrO[i][j] == "X" ) {
 					winnerRow++;
-					System.out.println(winnerRow);
 					winnerCount();		
 				} else if (xOrO[i][j] == "Y" ) {
 					winnerRow--;
-					System.out.println(winnerRow);
 					winnerCount();					
 				} else {											
 					winnerRow = 0;
-					System.out.println(winnerRow);
 					break;
 				}
 			}
@@ -134,15 +131,12 @@ public static String[][] xOrO = {
 			for(int j = 0; j < xOrO.length; j++) {
 				if (xOrO[j][i] == "X" ) {
 					winnerColumn++;
-					System.out.println(winnerColumn);
 					winnerCount();		
 				} else if (xOrO[j][i] == "Y" ) {
 					winnerColumn--;
-					System.out.println(winnerColumn);
 					winnerCount();					
 				} else {											
 					winnerColumn = 0;
-					System.out.println(winnerColumn);
 					break;
 				}
 			}
@@ -180,7 +174,6 @@ public static String[][] xOrO = {
 		for (int i = 0; i < SolutionSolving.xOrO.length; i++) {			 
 			for(int j = 0; j < SolutionSolving.xOrO[i].length; j++) {
 				SolutionSolving.xOrO[i][j] = "blank";
-				System.out.println(xOrO);
 			}	
 		}
 		MyFrame.button1.setEnabled(true);
@@ -192,15 +185,15 @@ public static String[][] xOrO = {
 		MyFrame.button7.setEnabled(true);
 		MyFrame.button8.setEnabled(true);
 		MyFrame.button9.setEnabled(true);
-		MyFrame.button1.setIcon(null);
-		MyFrame.button2.setIcon(null);
-		MyFrame.button3.setIcon(null);
-		MyFrame.button4.setIcon(null);
-		MyFrame.button5.setIcon(null);
-		MyFrame.button6.setIcon(null);
-		MyFrame.button7.setIcon(null);
-		MyFrame.button8.setIcon(null);
-		MyFrame.button9.setIcon(null);
+		MyFrame.button1.setIcon(MyFrame.blankButton);
+		MyFrame.button2.setIcon(MyFrame.blankButton);
+		MyFrame.button3.setIcon(MyFrame.blankButton);
+		MyFrame.button4.setIcon(MyFrame.blankButton);
+		MyFrame.button5.setIcon(MyFrame.blankButton);
+		MyFrame.button6.setIcon(MyFrame.blankButton);
+		MyFrame.button7.setIcon(MyFrame.blankButton);
+		MyFrame.button8.setIcon(MyFrame.blankButton);
+		MyFrame.button9.setIcon(MyFrame.blankButton);
 		winnerColumn = 0;
 		winnerRow = 0;
 		Player.playerOne = true;
