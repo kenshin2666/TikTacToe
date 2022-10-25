@@ -6,6 +6,8 @@ public class SolutionSolving{
 
 static int winnerRow = 0;
 static int winnerColumn = 0;
+static int winnerDiagonalX = 0;
+static int winnerDiagonalY = 0;
 
 public static String[][] xOrO = {
 			{"blank","blank","blank"},
@@ -102,9 +104,8 @@ public static String[][] xOrO = {
 	
 	public static void checkWinner() {
 		checkRows();
-		System.out.println();
 		checkColumns();
-		//checkDiagonals();
+		checkDiagonals();
 	}
 	//Will check each row of the 2D ArrayList for possible win conditions
 	public static void checkRows() {	
@@ -147,6 +148,15 @@ public static String[][] xOrO = {
 	//Will check each diagonal of the 2D ArrayList for possible win conditions
 	public static void checkDiagonals() {		
 		
+		if (xOrO[0][0] == "X" && xOrO[1][1] == "X" && xOrO[2][2] == "X") {
+			winnerDiagonalX = 1;
+		} else if (xOrO[0][0] == "Y" && xOrO[1][1] == "Y" && xOrO[2][2] == "Y") {
+			winnerDiagonalY = -1;
+		} else if (xOrO[0][2] == "X" && xOrO[1][1] == "X" && xOrO[2][0] == "X") {
+			winnerDiagonalX = 1;
+		} else if (xOrO[0][2] == "Y" && xOrO[1][1] == "Y" && xOrO[2][0] == "Y") {
+			winnerDiagonalY = -1;
+		} 
 	}
 	//Will check if each way causes a winner to occur
 	public static void winnerCount() {
@@ -163,6 +173,14 @@ public static String[][] xOrO = {
 					JOptionPane.PLAIN_MESSAGE, null);
 			reset();
 		} else if (winnerColumn == -3) {
+			JOptionPane.showMessageDialog(null, "Player 2 wins! Let's again!","Winner", 
+					JOptionPane.PLAIN_MESSAGE, null);
+			reset();
+		} else if (winnerDiagonalX == 1) {
+			JOptionPane.showMessageDialog(null, "Player 1 wins! Let's again!","Winner", 
+					JOptionPane.PLAIN_MESSAGE, null);
+			reset();
+		} else if (winnerDiagonalY == -1) {
 			JOptionPane.showMessageDialog(null, "Player 2 wins! Let's again!","Winner", 
 					JOptionPane.PLAIN_MESSAGE, null);
 			reset();
@@ -196,6 +214,36 @@ public static String[][] xOrO = {
 		MyFrame.button9.setIcon(MyFrame.blankButton);
 		winnerColumn = 0;
 		winnerRow = 0;
+		winnerDiagonalX = 0;
+		winnerDiagonalY = 0;
 		Player.playerOne = true;
 	}
 }
+
+/* 	public static void checkDiagonals() {		
+		
+		for (int i = 0; i < xOrO.length; i++) {			 
+			for(int j = 0; j < xOrO[i].length; j++) {
+				if (xOrO[i][j] == "X") {	
+					winnerDiagonal++;
+					System.out.println(winnerDiagonal);
+					winnerCount();
+					break;
+					
+				} else if (xOrO[i][j] == "Y") {
+					winnerDiagonal--;
+					winnerCount();
+					System.out.println(winnerDiagonal);
+					break;		
+					
+				} else {
+					winnerDiagonal = 0;
+					System.out.println(winnerDiagonal);
+					break;	
+					
+				}
+			}
+			
+		}
+	}
+	*/
