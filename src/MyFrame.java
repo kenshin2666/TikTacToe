@@ -18,6 +18,8 @@ import javax.swing.JOptionPane;
 public class MyFrame extends JFrame implements ActionListener {
 	
 	// Declaring variables
+	private SolutionSolving solutionSolving;
+	
 	JMenuBar menuBar;
 	JMenu fileMenu ;
 	JMenu helpMenu;
@@ -33,17 +35,19 @@ public class MyFrame extends JFrame implements ActionListener {
 	static ImageIcon blankButton = new ImageIcon("blankicon.png");
 	
 	//creating the 9 buttons 
-	static JButton button1 = new JButton();
-	static JButton button2 = new JButton();
-	static JButton button3 = new JButton();
-	static JButton button4 = new JButton();
-	static JButton button5 = new JButton();
-	static JButton button6 = new JButton();
-	static JButton button7 = new JButton();
-	static JButton button8 = new JButton();
-	static JButton button9 = new JButton();
-	
+	 static JButton button1 = new JButton();
+	 static JButton button2 = new JButton();
+	 static JButton button3 = new JButton();
+	 static JButton button4 = new JButton();
+	 static JButton button5 = new JButton();
+	 static JButton button6 = new JButton();
+	 static JButton button7 = new JButton();
+	 static JButton button8 = new JButton();
+	 static JButton button9 = new JButton();
+		
 	MyFrame() {
+		
+		this.solutionSolving = new SolutionSolving();
 		
 		// Building the frame
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -131,7 +135,7 @@ public class MyFrame extends JFrame implements ActionListener {
 			System.exit(0);
 		}
 		if (e.getSource()==restartItem) {
-			SolutionSolving.reset();
+			solutionSolving.reset();
 		}
 		if (e.getSource()==howToPlay) {
 			JOptionPane.showMessageDialog(null, "Each player takes a turn placing and X or O,\n"
@@ -143,137 +147,137 @@ public class MyFrame extends JFrame implements ActionListener {
 		if (e.getSource()==button1) {		
 			if (Player.playerOne == true) {
 				button1.getModel().setPressed(true);
-				SolutionSolving.setValue();
+				solutionSolving.setValue();
 				button1.setEnabled(false);
 				button1.setDisabledIcon(xIcon);			
 			} else {
 				button1.getModel().setPressed(true);
-				SolutionSolving.setValue();
+				solutionSolving.setValue();
 				button1.setEnabled(false);
 				button1.setDisabledIcon(oIcon);			
 			}
 			Player.TurnCount();			
-			SolutionSolving.checkWinner();
+			solutionSolving.checkWinner();
 		}
 		if (e.getSource()==button2) {		
 			if (Player.playerOne == true) {
 				button2.getModel().setPressed(true);
-				SolutionSolving.setValue();
+				solutionSolving.setValue();
 				button2.setEnabled(false);
 				button2.setDisabledIcon(xIcon);			
 			} else {
 				button2.getModel().setPressed(true);
-				SolutionSolving.setValue();
+				solutionSolving.setValue();
 				button2.setEnabled(false);
 				button2.setDisabledIcon(oIcon);			
 			}
 			Player.TurnCount();			
-			SolutionSolving.checkWinner();
+			solutionSolving.checkWinner();
 		}
 		if (e.getSource()==button3) {		
 			if (Player.playerOne == true) {
 				button3.getModel().setPressed(true);
-				SolutionSolving.setValue();
+				solutionSolving.setValue();
 				button3.setEnabled(false);
 				button3.setDisabledIcon(xIcon);				
 			} else {
 				button3.getModel().setPressed(true);
-				SolutionSolving.setValue();
+				solutionSolving.setValue();
 				button3.setEnabled(false);
 				button3.setDisabledIcon(oIcon);				
 			}
 			Player.TurnCount();			
-			SolutionSolving.checkWinner();
+			solutionSolving.checkWinner();
 		}
 		if (e.getSource()==button4) {			
 			if (Player.playerOne == true) {
 				button4.getModel().setPressed(true);
-				SolutionSolving.setValue();
+				solutionSolving.setValue();
 				button4.setEnabled(false);
 				button4.setDisabledIcon(xIcon);				
 			} else {
 				button4.getModel().setPressed(true);
-				SolutionSolving.setValue();
+				solutionSolving.setValue();
 				button4.setEnabled(false);
 				button4.setDisabledIcon(oIcon);				
 			}
 			Player.TurnCount();			
-			SolutionSolving.checkWinner();
+			solutionSolving.checkWinner();
 		}
 		if (e.getSource()==button5) {			
 			if (Player.playerOne == true) {
 				button5.getModel().setPressed(true);
-				SolutionSolving.setValue();
+				solutionSolving.setValue();
 				button5.setEnabled(false);
 				button5.setDisabledIcon(xIcon);				
 			} else {
 				button5.getModel().setPressed(true);
-				SolutionSolving.setValue();
+				solutionSolving.setValue();
 				button5.setEnabled(false);
 				button5.setDisabledIcon(oIcon);				
 			}
 			Player.TurnCount();			
-			SolutionSolving.checkWinner();
+			solutionSolving.checkWinner();
 		}
 		if (e.getSource()==button6) {			
 			if (Player.playerOne == true) {
 				button6.getModel().setPressed(true);
-				SolutionSolving.setValue();
+				solutionSolving.setValue();
 				button6.setEnabled(false);
 				button6.setDisabledIcon(xIcon);				
 			} else {
 				button6.getModel().setPressed(true);
-				SolutionSolving.setValue();
+				solutionSolving.setValue();
 				button6.setEnabled(false);
 				button6.setDisabledIcon(oIcon);				
 			}
 			Player.TurnCount();			
-			SolutionSolving.checkWinner();
+			solutionSolving.checkWinner();
 		}
 		if (e.getSource()==button7) {			
 			if (Player.playerOne == true) {
 				button7.getModel().setPressed(true);
-				SolutionSolving.setValue();
+				solutionSolving.setValue();
 				button7.setEnabled(false);
 				button7.setDisabledIcon(xIcon);				
 			} else {
 				button7.getModel().setPressed(true);
-				SolutionSolving.setValue();
+				solutionSolving.setValue();
 				button7.setEnabled(false);
 				button7.setDisabledIcon(oIcon);			
 			}
 			Player.TurnCount();			
-			SolutionSolving.checkWinner();
+			solutionSolving.checkWinner();
 		}
 		if (e.getSource()==button8) {			
 			if (Player.playerOne == true) {
 				button8.getModel().setPressed(true);
-				SolutionSolving.setValue();
+				solutionSolving.setValue();
 				button8.setEnabled(false);
 				button8.setDisabledIcon(xIcon);				
 			} else {
 				button8.getModel().setPressed(true);
-				SolutionSolving.setValue();
+				solutionSolving.setValue();
 				button8.setEnabled(false);
 				button8.setDisabledIcon(oIcon);			
 			}
 			Player.TurnCount();			
-			SolutionSolving.checkWinner();
+			solutionSolving.checkWinner();
 		}
 		if (e.getSource()==button9) {			
 			if (Player.playerOne == true) {
 				button9.getModel().setPressed(true);
-				SolutionSolving.setValue();
+				solutionSolving.setValue();
 				button9.setEnabled(false);
 				button9.setDisabledIcon(xIcon);				
 			} else {
 				button9.getModel().setPressed(true);
-				SolutionSolving.setValue();
+				solutionSolving.setValue();
 				button9.setEnabled(false);
 				button9.setDisabledIcon(oIcon);			
 			}
 			Player.TurnCount();			
-			SolutionSolving.checkWinner();
+			solutionSolving.checkWinner();
 		}
 	}	
 	

@@ -1,42 +1,42 @@
-import java.util.ArrayList;
-
 import javax.swing.JOptionPane;
 
 public class SolutionSolving{
 
-static int winnerRow = 0;
-static int winnerColumn = 0;
-static int winnerDiagonalX = 0;
-static int winnerDiagonalY = 0;
+int winnerRow = 0;
+int winnerColumn = 0;
+int winnerDiagonalX = 0;
+int winnerDiagonalO = 0;
 
-public static String[][] xOrO = {
+public String[][] xOrO = {
 			{"blank","blank","blank"},
 			{"blank","blank","blank"},
 			{"blank","blank","blank"}
 			};
+
     //{"X","X","X"}
- 	//{"Y","Y","Y"}
+ 	//{"O","O","O"}
  	//{"blank","blank","blank"}
-	public static void main(String[] args) {       
-		
-    	for (String[] x : xOrO) {
-            for (String i : x) {
-                System.out.print(i + "\t");
-            }
-            System.out.println("\n");
-            
-        }
-		checkWinner();
-	}
+//	public static void main(String[] args) {       
+//		
+//    	for (String[] x : xOrO) {
+//            for (String i : x) {
+//                System.out.print(i + "\t");
+//            }
+//            System.out.println("\n");
+//            
+//        }
+//		checkWinner();
+//	}
+
 	//Sets the value of X or O depending on player 1 or 2 in the 2D ArrayList
-	public static void setValue() {
+	public void setValue() {
 		
 		if(MyFrame.button1.getModel().isPressed() == true) {
 			if (Player.playerOne == true) {
 				// Set 2D ArrayList [0][0] to "X"
 				xOrO[0][0] = "X";
 			} else {
-				// Set 2D ArrayList [0][0] to "Y"
+				// Set 2D ArrayList [0][0] to "O"
 				xOrO[0][0] = "O";
 			}
 			
@@ -44,79 +44,79 @@ public static String[][] xOrO = {
 			if (Player.playerOne == true) {
 				xOrO[0][1] = "X";
 			} else {
-				xOrO[0][1] = "Y";				
+				xOrO[0][1] = "O";				
 			}	
 			
 		} else if(MyFrame.button3.getModel().isPressed() == true) {
 			if (Player.playerOne == true) {
 				xOrO[0][2] = "X";
 			} else {
-				xOrO[0][2] = "Y";				
+				xOrO[0][2] = "O";				
 			}		
 			
 		} else if(MyFrame.button4.getModel().isPressed() == true) {
 			if (Player.playerOne == true) {
 				xOrO[1][0] = "X";
 			} else {
-				xOrO[1][0] = "Y";			
+				xOrO[1][0] = "O";			
 			}		
 			
 		} else if(MyFrame.button5.getModel().isPressed() == true) {
 			if (Player.playerOne == true) {
 				xOrO[1][1] = "X";
 			} else {
-				xOrO[1][1] = "Y";				
+				xOrO[1][1] = "O";				
 			}	
 			
 		}  else if(MyFrame.button6.getModel().isPressed() == true) {
 			if (Player.playerOne == true) {
 				xOrO[1][2] = "X";
 			} else {
-				xOrO[1][2] = "Y";				
+				xOrO[1][2] = "O";				
 			}	
 			
 		}  else if(MyFrame.button7.getModel().isPressed() == true) {
 			if (Player.playerOne == true) {
 				xOrO[2][0] = "X";
 			} else {
-				xOrO[2][0] = "Y";				
+				xOrO[2][0] = "O";				
 			}	
 			
 		}  else if(MyFrame.button8.getModel().isPressed() == true) {
 			if (Player.playerOne == true) {
 				xOrO[2][1] = "X";
 			} else {
-				xOrO[2][1] = "Y";			
+				xOrO[2][1] = "O";			
 			}	
 			
 		}  else if(MyFrame.button9.getModel().isPressed() == true) {
 			if (Player.playerOne == true) {
 				xOrO[2][2] = "X";
 			} else {
-				xOrO[2][2] = "Y";			
+				xOrO[2][2] = "O";			
 			}	
 			
 		} else {
 			System.out.println("This may be broken :(");
-		}
-		
+		}		
 	}
 	
-	public static void checkWinner() {
+	public void checkWinner() {
 		checkRows();
 		checkColumns();
 		checkDiagonals();
 	}
+	
 	//Will check each row of the 2D ArrayList for possible win conditions
-	public static void checkRows() {	
+	public void checkRows() {	
 		for (int i = 0; i < xOrO.length; i++) {			 
 			for(int j = 0; j < xOrO[i].length; j++) {
 				if (xOrO[i][j] == "X" ) {
 					winnerRow++;
-					winnerCount();		
-				} else if (xOrO[i][j] == "Y" ) {
+					winnerDisplay();		
+				} else if (xOrO[i][j] == "O" ) {
 					winnerRow--;
-					winnerCount();					
+					winnerDisplay();					
 				} else {											
 					winnerRow = 0;
 					break;
@@ -127,15 +127,15 @@ public static String[][] xOrO = {
 	}
 	
 	//Will check each column of the 2D ArrayList for possible win conditions
-	public static void checkColumns() {
+	public void checkColumns() {
 		for (int i = 0; i < xOrO[0].length; i++) {			 
 			for(int j = 0; j < xOrO.length; j++) {
 				if (xOrO[j][i] == "X" ) {
 					winnerColumn++;
-					winnerCount();		
-				} else if (xOrO[j][i] == "Y" ) {
+					winnerDisplay();		
+				} else if (xOrO[j][i] == "O" ) {
 					winnerColumn--;
-					winnerCount();					
+					winnerDisplay();					
 				} else {											
 					winnerColumn = 0;
 					break;
@@ -146,20 +146,25 @@ public static String[][] xOrO = {
 	}
 	
 	//Will check each diagonal of the 2D ArrayList for possible win conditions
-	public static void checkDiagonals() {		
-		
+	public void checkDiagonals() {		
+		//needs winnerDisplay();
 		if (xOrO[0][0] == "X" && xOrO[1][1] == "X" && xOrO[2][2] == "X") {
 			winnerDiagonalX = 1;
-		} else if (xOrO[0][0] == "Y" && xOrO[1][1] == "Y" && xOrO[2][2] == "Y") {
-			winnerDiagonalY = -1;
+			winnerDisplay();
+		} else if (xOrO[0][0] == "O" && xOrO[1][1] == "O" && xOrO[2][2] == "O") {
+			winnerDiagonalO = -1;
+			winnerDisplay();
 		} else if (xOrO[0][2] == "X" && xOrO[1][1] == "X" && xOrO[2][0] == "X") {
 			winnerDiagonalX = 1;
-		} else if (xOrO[0][2] == "Y" && xOrO[1][1] == "Y" && xOrO[2][0] == "Y") {
-			winnerDiagonalY = -1;
+			winnerDisplay();
+		} else if (xOrO[0][2] == "O" && xOrO[1][1] == "O" && xOrO[2][0] == "O") {
+			winnerDiagonalO = -1;
+			winnerDisplay();
 		} 
 	}
+	
 	//Will check if each way causes a winner to occur
-	public static void winnerCount() {
+	public void winnerDisplay() {
 		if (winnerRow == 3) {
 			JOptionPane.showMessageDialog(null, "Player 1 wins! Let's again!","Winner", 
 					JOptionPane.PLAIN_MESSAGE, null);
@@ -180,7 +185,7 @@ public static String[][] xOrO = {
 			JOptionPane.showMessageDialog(null, "Player 1 wins! Let's again!","Winner", 
 					JOptionPane.PLAIN_MESSAGE, null);
 			reset();
-		} else if (winnerDiagonalY == -1) {
+		} else if (winnerDiagonalO == -1) {
 			JOptionPane.showMessageDialog(null, "Player 2 wins! Let's again!","Winner", 
 					JOptionPane.PLAIN_MESSAGE, null);
 			reset();
@@ -188,10 +193,10 @@ public static String[][] xOrO = {
 	}
 	
 	//Needs to reset the 2D ArrayList, as well as resetting the JButtons
-	public static void reset() {
-		for (int i = 0; i < SolutionSolving.xOrO.length; i++) {			 
-			for(int j = 0; j < SolutionSolving.xOrO[i].length; j++) {
-				SolutionSolving.xOrO[i][j] = "blank";
+	public void reset() {
+		for (int i = 0; i < xOrO.length; i++) {			 
+			for(int j = 0; j < xOrO[i].length; j++) {
+				xOrO[i][j] = "blank";
 			}	
 		}
 		MyFrame.button1.setEnabled(true);
@@ -215,35 +220,7 @@ public static String[][] xOrO = {
 		winnerColumn = 0;
 		winnerRow = 0;
 		winnerDiagonalX = 0;
-		winnerDiagonalY = 0;
+		winnerDiagonalO = 0;
 		Player.playerOne = true;
 	}
 }
-
-/* 	public static void checkDiagonals() {		
-		
-		for (int i = 0; i < xOrO.length; i++) {			 
-			for(int j = 0; j < xOrO[i].length; j++) {
-				if (xOrO[i][j] == "X") {	
-					winnerDiagonal++;
-					System.out.println(winnerDiagonal);
-					winnerCount();
-					break;
-					
-				} else if (xOrO[i][j] == "Y") {
-					winnerDiagonal--;
-					winnerCount();
-					System.out.println(winnerDiagonal);
-					break;		
-					
-				} else {
-					winnerDiagonal = 0;
-					System.out.println(winnerDiagonal);
-					break;	
-					
-				}
-			}
-			
-		}
-	}
-	*/
