@@ -235,5 +235,6 @@ public String[][] xOrO = {
 		Player.playerOne = true;
 		Player.drawCounter = 0;
 		winnerDeclared = false;
+		AI.randomInt = 0;
 	}
 }

@@ -10,7 +10,7 @@ static int drawCounter = 0;
 			playerOne = false;
 			drawCounter++;
 		} else {
-			//AI.aiTurn();
+			AI.aiTurn();
 			playerOne = true;
 			drawCounter++;
 		}		
