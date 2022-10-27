@@ -6,6 +6,7 @@ int winnerRow = 0;
 int winnerColumn = 0;
 int winnerDiagonalX = 0;
 int winnerDiagonalO = 0;
+boolean winnerDeclared = false;
 
 public String[][] xOrO = {
 			{"blank","blank","blank"},
@@ -166,27 +167,37 @@ public String[][] xOrO = {
 	//Will check if each way causes a winner to occur
 	public void winnerDisplay() {
 		if (winnerRow == 3) {
+			winnerDeclared = true;
 			JOptionPane.showMessageDialog(null, "Player 1 wins! Let's again!","Winner", 
 					JOptionPane.PLAIN_MESSAGE, null);
 			reset();
 		} else if (winnerRow == -3) {
+			winnerDeclared = true;
 			JOptionPane.showMessageDialog(null, "Player 2 wins! Let's again!","Winner", 
 					JOptionPane.PLAIN_MESSAGE, null);
 			reset();
 		} else if (winnerColumn == 3) {
+			winnerDeclared = true;
 			JOptionPane.showMessageDialog(null, "Player 1 wins! Let's again!","Winner", 
 					JOptionPane.PLAIN_MESSAGE, null);
 			reset();
 		} else if (winnerColumn == -3) {
+			winnerDeclared = true;
 			JOptionPane.showMessageDialog(null, "Player 2 wins! Let's again!","Winner", 
 					JOptionPane.PLAIN_MESSAGE, null);
 			reset();
 		} else if (winnerDiagonalX == 1) {
+			winnerDeclared = true;
 			JOptionPane.showMessageDialog(null, "Player 1 wins! Let's again!","Winner", 
 					JOptionPane.PLAIN_MESSAGE, null);
 			reset();
 		} else if (winnerDiagonalO == -1) {
+			winnerDeclared = true;
 			JOptionPane.showMessageDialog(null, "Player 2 wins! Let's again!","Winner", 
+					JOptionPane.PLAIN_MESSAGE, null);
+			reset();
+		} else if (winnerDeclared == false && Player.drawCounter == 9) {
+			JOptionPane.showMessageDialog(null, "Nobody won :( ! Let's again!","Draw", 
 					JOptionPane.PLAIN_MESSAGE, null);
 			reset();
 		}
@@ -222,5 +233,7 @@ public String[][] xOrO = {
 		winnerDiagonalX = 0;
 		winnerDiagonalO = 0;
 		Player.playerOne = true;
+		Player.drawCounter = 0;
+		winnerDeclared = false;
 	}
 }
