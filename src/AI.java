@@ -11,7 +11,6 @@ public class AI {
 		aiTurn();
 		
 	    }
-
 	
 	public static void randomNumber() {		
 
@@ -26,76 +25,95 @@ public class AI {
 			if (randomInt == 1) { 
 				if (MyFrame.button1.getModel().isPressed() == false) {			
 					MyFrame.button1.doClick();
+					break;
 
 					
 				} else if (MyFrame.button1.getModel().isPressed() == true) {
 					randomNumber();
+					break;
 				}
 			} else if (randomInt == 2) { 
 				if (MyFrame.button2.getModel().isPressed() == false) {
 					
 
 					MyFrame.button2.doClick();
+					break;
 				} else if (MyFrame.button2.getModel().isPressed() == true) {
 					randomNumber();
+					break;
 				}
 			} else if (randomInt == 3) { 
 				if (MyFrame.button3.getModel().isPressed() == false) {
 					
 
 					MyFrame.button3.doClick();
+					break;
 				} else if (MyFrame.button3.getModel().isPressed() == true) {
 					randomNumber();
+					break;
 				}				
 			} else if (randomInt == 4) { 
 				if (MyFrame.button4.getModel().isPressed() == false) {
 					
 
 					MyFrame.button4.doClick();
+					break;
 				} else if (MyFrame.button4.getModel().isPressed() == true) {
 					randomNumber();
+					break;
 				}				
 			} else if (randomInt == 5) { 
 				if (MyFrame.button5.getModel().isPressed() == false) {
 					
 
 					MyFrame.button5.doClick();
+					break;
 				} else if (MyFrame.button5.getModel().isPressed() == true) {
 					randomNumber();
+					break;
 				}				
 			} else if (randomInt == 6) { 
 				if (MyFrame.button6.getModel().isPressed() == false) {
 					
 
 					MyFrame.button6.doClick();
+					break;
 				} else if (MyFrame.button6.getModel().isPressed() == true) {
 					randomNumber();
+					break;
 				}				
 			} else if (randomInt == 7) { 
 				if (MyFrame.button7.getModel().isPressed() == false) {
 					
 
 					MyFrame.button7.doClick();
+					break;
 				} else if (MyFrame.button7.getModel().isPressed() == true) {
 					randomNumber();
+					break;
 				}				
 			} else if (randomInt == 8) { 
 				if (MyFrame.button8.getModel().isPressed() == false) {
 					
 
 					MyFrame.button8.doClick();
+					break;
 				} else if (MyFrame.button8.getModel().isPressed() == true) {
 					randomNumber();
+					break;
 				}				
 			} else if (randomInt == 9) { 
 				if (MyFrame.button9.getModel().isPressed() == false) {
 					
 
 					MyFrame.button9.doClick();
+					break;
 				} else if (MyFrame.button9.getModel().isPressed() == true) {
 					randomNumber();
+					break;
 				}				
-			}	break;		
+			}	
+			break;		
 		}
 		Player.playerOne = true;
 	}

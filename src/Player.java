@@ -11,7 +11,7 @@ static int drawCounter = 0;
 			drawCounter++;
 		} else {
 			AI.aiTurn();
-			playerOne = true;
+			//playerOne = true;
 			drawCounter++;
 		}		
 	}
